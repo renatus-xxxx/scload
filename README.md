@@ -1,6 +1,5 @@
 # scload
-<img width="50%" src="https://raw.githubusercontent.com/renatus-xxxx/scload/main/bin/flower.png" title="flower" />
-<img width="50%" src="https://raw.githubusercontent.com/renatus-xxxx/scload/main/bin/night.png" title="night" />
+<img src="https://raw.githubusercontent.com/renatus-xxxx/scload/main/bin/flower.png" title="flower" /><img src="https://raw.githubusercontent.com/renatus-xxxx/scload/main/bin/night.png" title="night" />
 
 ## overview
 .SC8(MSX2) image loader on MSX-DOS
