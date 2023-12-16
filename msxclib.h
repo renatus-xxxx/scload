@@ -3,7 +3,6 @@
 
 /* From "Introduction to MSX-C" */
 /* ISBN: 4-7561-0057-0          */
-
 #include <msxalib.h>
 
 void screen(int md);
