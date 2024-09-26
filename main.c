@@ -31,7 +31,10 @@ int main( int argc, char *argv[]) {
     ginit();
     screen(8);
     int ret = scload(argv[1]);
-    getchar();
+    while((snsmat(7) & 0x04) != 0){ // ESC
+      // todo
+    }
+    //getchar();
     screen(0);
   }
   return 0;

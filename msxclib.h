@@ -6,5 +6,6 @@
 #include <msxalib.h>
 
 void screen(int md);
+char snsmat(int mt);
 
 #endif /* __MSXCLIB_H__ */

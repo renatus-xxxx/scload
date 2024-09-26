@@ -8,3 +8,9 @@ void screen(int md){
   r.a = (char)md;
   calbio(0x005f, &r);
 }
+char snsmat(int mt){
+  struct regs r;
+  r.a = (char)mt;
+  calbio(0x0141, &r);
+  return (r.a);
+}
