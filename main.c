@@ -23,6 +23,14 @@ int scload(char* fn) {
   }
 }
 
+int edge_esc() {
+  static int old_s = 0;
+  int s = ((snsmat(7) & 0x04) == 0);
+  int r = (s && !old_s);
+  old_s = s;
+  return r;
+}
+
 int main( int argc, char *argv[]) {
   if (argc < 2) {
     printf("Usage: scload <filename>\n");
@@ -31,10 +39,11 @@ int main( int argc, char *argv[]) {
     ginit();
     screen(8);
     int ret = scload(argv[1]);
-    while((snsmat(7) & 0x04) != 0){ // ESC
-      // todo
+    while(1){
+      if (edge_esc()) {
+        break; // ESC
+      }
     }
-    //getchar();
     screen(0);
   }
   return 0;
