@@ -23,27 +23,10 @@ int scload(char* fn) {
   }
 }
 
-int edge_esc() {
-  static int old_s = 0;
-  int s = ((snsmat(7) & 0x04) == 0);
-  int r = (s && !old_s);
-  old_s = s;
-  return r;
-}
-
-int edge_left() {
-  static int old_l = 0;
-  int s = ((snsmat(8) & 0x10) == 0);
-  int r = (s && !old_l);
-  old_l = s;
-  return r;
-}
-
-int edge_right() {
-  static int old_r = 0;
-  int s = ((snsmat(8) & 0x80) == 0);
-  int r = (s && !old_r);
-  old_r = s;
+int edge_key(int line, int bitmask, int* old) {
+  int s = ((snsmat(line) & bitmask) == 0);
+  int r = (s && !*old);
+  *old = s;
   return r;
 }
 
@@ -55,14 +38,12 @@ int main( int argc, char *argv[]) {
     ginit();
     screen(8);
     int ret = scload(argv[1]);
-    while(1){
-      if (edge_esc()) { // ESC
-        break;
-      }
-      if (edge_right()) { //  ->
+    int old_esc = 0, old_l = 0, old_r = 0;
+    while(!edge_key(7, 0x04, old_esc)){ // ESC
+      if (edge_key(8, 0x80, old_r)) { //  ->
         scload("night.sc8");
       }
-      if (edge_left()) {  // <-
+      if (edge_key(8, 0x10, old_l)) {  // <-
         scload("flower.sc8");
       }
     }
