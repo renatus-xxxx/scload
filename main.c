@@ -31,6 +31,22 @@ int edge_esc() {
   return r;
 }
 
+int edge_left() {
+  static int old_l = 0;
+  int s = ((snsmat(8) & 0x10) == 0);
+  int r = (s && !old_l);
+  old_l = s;
+  return r;
+}
+
+int edge_right() {
+  static int old_r = 0;
+  int s = ((snsmat(8) & 0x80) == 0);
+  int r = (s && !old_r);
+  old_r = s;
+  return r;
+}
+
 int main( int argc, char *argv[]) {
   if (argc < 2) {
     printf("Usage: scload <filename>\n");
@@ -40,8 +56,14 @@ int main( int argc, char *argv[]) {
     screen(8);
     int ret = scload(argv[1]);
     while(1){
-      if (edge_esc()) {
-        break; // ESC
+      if (edge_esc()) { // ESC
+        break;
+      }
+      if (edge_right()) { //  ->
+        scload("night.sc8");
+      }
+      if (edge_left()) {  // <-
+        scload("flower.sc8");
       }
     }
     screen(0);
