@@ -18,9 +18,8 @@ int scload(char* fn) {
     }
     fclose(fp);
     return 0;
-  } else {
-    return 1;
   }
+  return 1;
 }
 
 int edge_key(int line, int bitmask, int* old) {

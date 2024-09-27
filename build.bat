@@ -1,4 +1,4 @@
-zcc +msx -create-app -O3 -DAMALLOC -subtype=msxdos main.c msxclib.c msxalib.c -bn SCLOAD.COM -lm
+zcc +msx -create-app -O3 -DAMALLOC -subtype=msxdos main.c msxclib.c msxalib.c -bn SCLOAD.COM -lm -Wall
 del SCLOAD.img
 move /y SCLOAD.COM bin
 cd bin
