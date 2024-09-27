@@ -39,11 +39,11 @@ int main( int argc, char *argv[]) {
     screen(8);
     int ret = scload(argv[1]);
     int old_esc = 0, old_l = 0, old_r = 0;
-    while(!edge_key(7, 0x04, old_esc)){ // ESC
-      if (edge_key(8, 0x80, old_r)) { //  ->
+    while(!edge_key(7, 0x04, &old_esc)){ // ESC
+      if (edge_key(8, 0x80, &old_r)) {   //  ->
         scload("night.sc8");
       }
-      if (edge_key(8, 0x10, old_l)) {  // <-
+      if (edge_key(8, 0x10, &old_l)) {   // <-
         scload("flower.sc8");
       }
     }
