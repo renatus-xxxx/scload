@@ -36,6 +36,7 @@ int main( int argc, char *argv[]) {
   } else {
     ginit();
     screen(8);
+    color(15,1,1);
     int ret = scload(argv[1]);
     int old_esc = 0, old_l = 0, old_r = 0;
     while(!edge_key(7, 0x04, &old_esc)){ // ESC

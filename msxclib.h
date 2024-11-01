@@ -6,6 +6,7 @@
 #include <msxalib.h>
 
 void screen(int md);
+void color(int fg, int bg, int bd);
 char snsmat(int mt);
 
 #endif /* __MSXCLIB_H__ */
